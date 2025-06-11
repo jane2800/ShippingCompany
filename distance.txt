@@ -1,0 +1,10 @@
+distance = { Berlin: 255.46,
+    Munich: 608.29,
+    Leipzig: 291.4,
+    Dresden: 375.28
+    Köln: 352.06
+    Rome: 1304.41
+    Paris: 741.66,
+    Wien: 741.53,
+    Madrid: 1782.66,
+}
