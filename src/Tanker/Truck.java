@@ -1,12 +1,12 @@
 package Tanker;
 
-public class Trucker {
+public abstract class Truck {
     private String name;
     private int height;
     private int radius;
     private int volume;
 
-    public Trucker(String name, int height, int radius) {
+    public Truck(String name, int height, int radius) {
         int power = (int) Math.pow(radius,2);
 
         this.name = name;
@@ -32,3 +32,10 @@ public class Trucker {
         System.out.println("Volume: " + volume);
     }
 }
+
+class Medium extends Truck {
+    public Medium(String name, int height, int radius) {
+        super(name, height, radius);
+    }
+}
+
