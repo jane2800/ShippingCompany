@@ -1,30 +1,30 @@
 package Tanker;
 
 public abstract class Truck {
-    private int height;
-    private int radius;
-    private int volume;
+    private double height;
+    private double radius;
+    private double volume;
 
-    public Truck(int height, int radius) {
-        int power = (int) Math.pow(radius,2);
+    public Truck(double height, double radius) {
+        double power = Math.pow(radius,2);
 
         this.height = height;
         this.radius = radius;
         this.volume = (int) (Math.PI * power * height);
     }
 
-    public int getHeight() {return height;}
-    public int getRadius() {return radius;}
-    public int getVolume(){return volume;}
+    public double getHeight() {return height;}
+    public double getRadius() {return radius;}
+    public double getVolume(){return volume;}
 
-    public void setHeight(int height) {this.height = height;}
-    public void setRadius(int radius) {this.radius = radius;}
-    public void setVolume(int volume) {this.volume = volume;}
+    public void setHeight(double height) {this.height = height;}
+    public void setRadius(double radius) {this.radius = radius;}
+    public void setVolume(double volume) {this.volume = volume;}
 
     public void display() {
-        System.out.println("Height: " + height);
-        System.out.println("Radius: " + radius);
-        System.out.println("Volume: " + volume);
+        System.out.print("\nHeight: " + height);
+        System.out.print("\nRadius: " + radius);
+        System.out.print("\nVolume: " + volume);
     }
 }
 

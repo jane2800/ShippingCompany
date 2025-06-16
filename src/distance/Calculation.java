@@ -64,11 +64,9 @@ public class Calculation {
     }
 
     private ArrayList<Item> items = new ArrayList<>();
-
-    public ArrayList<Item> addItems(String name, double liquid_density, double risk_factor) {
+    public void addItems(String name, double liquid_density, double risk_factor) {
         Item newItem = new Item(name, liquid_density, risk_factor);
         items.add(newItem);
-        return items;
     }
 
     //public String addOrder(){};
@@ -105,6 +103,20 @@ public class Calculation {
         if (index >= 0 && index < items.size()) {
             return items.get(index);
         } else return null;
+    }
+
+    public void printItems() {
+        if (items.isEmpty()) {
+            System.out.println("No items available.");
+            return;
+        }
+
+        System.out.println("Available Items:");
+        int index = 0;
+        for (Item item : items) {
+            System.out.println(index + ": " + item.getName());
+            index++;
+        }
     }
 
     //public void setItem(int item) {}
