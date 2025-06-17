@@ -2,6 +2,7 @@ package distance;
 import Tanker.*;
 import Tanks.Item;
 
+import javax.crypto.Cipher;
 import java.util.ArrayList;
 
 public class Calculation {
@@ -63,8 +64,7 @@ public class Calculation {
         return base + riskAdded + returnCost;
     }
 
-    private ArrayList<Item> items = new ArrayList<>();
-    public void addItems(String name, double liquid_density, double risk_factor) {
+    public void addItems(String name, double liquid_density, double risk_factor, ArrayList<Item> items) {
         Item newItem = new Item(name, liquid_density, risk_factor);
         items.add(newItem);
     }
@@ -95,30 +95,44 @@ public class Calculation {
         System.out.println("\nTotal shipping cost: €" + Math.round(cost));
     }
 
-    public ArrayList<Item> getItems() {
+    public ArrayList<Item> getItems(ArrayList<Item> items) {
         return items;
     }
 
-    public Item getItemByIndex(int index) {
-        if (index >= 0 && index < items.size()) {
-            return items.get(index);
+    public Item getItemByIndex(ArrayList<Item> arrayList, int index) {
+        if (index >= 0 && index < arrayList.size()) {
+            return arrayList.get(index);
         } else return null;
     }
 
-    public void printItems() {
-        if (items.isEmpty()) {
+    public void printItems(ArrayList<Item> arrayList) {
+        if (arrayList.isEmpty()) {
             System.out.println("No items available.");
-            return;
         }
-
-        System.out.println("Available Items:");
-        int index = 0;
-        for (Item item : items) {
-            System.out.println(index + ": " + item.getName());
-            index++;
+         else{
+            System.out.println("Available Items:");
+            int index = 0;
+            for (Item item : arrayList) {
+                System.out.println(index + ": " + item.getName());
+                index++;
+            }
+            System.out.println( index+1 + ":Other ");
         }
     }
 
+    public void printCities(ArrayList<DistanceToCity> arrayList) {
+        if (arrayList.isEmpty()) {
+            System.out.println("\nNo cities available.");
+        } else {
+            System.out.println("\nAvailable Cities:");
+            int index = 0;
+            for (DistanceToCity item : arrayList) {
+                System.out.println(index + ": " + item.getCityName());
+                index++;
+            }
+            System.out.println( index+1 + ":Other ");
+        }
+    }
     //public void setItem(int item) {}
 }
 
